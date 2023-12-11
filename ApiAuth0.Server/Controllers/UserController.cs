@@ -28,10 +28,10 @@ namespace ApiAuth0.Server.Controllers
             }
 
             [HttpPost("login")]
-            
-            public async Task<IActionResult> Logar([FromQuery] string username, [FromQuery] string password )
+
+            public async Task<IActionResult> Logar( string username,  string password)
             {
-                
+
                 SqliteConnection sqLiteConnection = new SqliteConnection("DataSource=UsersASC.db;Cache=Shared;");
 
                 await sqLiteConnection.OpenAsync();
@@ -41,12 +41,13 @@ namespace ApiAuth0.Server.Controllers
                 sqliteCommand.CommandText = $"SELECT * FROM Users WHERE Username ='{username}'AND Password = '{password}'";
 
                 SqliteDataReader reader = sqliteCommand.ExecuteReader();
+                //implementar cadastro no client  para obsrvar essa issue
 
                 if (await reader.ReadAsync())
                 {
                     return Ok(new { Msg = "logado" });
                 }
-                return Ok(new { Msg = "não encontrado" });
+                     return Ok(new { Msg = "verifique suas credenciais" });
             }
 
             [HttpGet]

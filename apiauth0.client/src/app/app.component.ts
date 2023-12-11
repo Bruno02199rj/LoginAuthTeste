@@ -3,12 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
-}
 
 @Component({
   selector: 'app-root',
@@ -41,11 +35,9 @@ export class AppComponent implements OnInit {
   }
 
   Enviar(data: { Username: string, Password: string }) {
-    headers: new HttpHeaders({
-      'Content-Type':'application/json'
-    })
+  
     console.log(data)
-    this.http.post('/weatherforecast/Login', data,  )
+    this.http.post(`/weatherforecast/login?username=${data.Username}&password=${data.Password}`, data,)
       .subscribe((res) => {
         console.log(res)
       })
