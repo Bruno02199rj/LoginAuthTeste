@@ -19,8 +19,10 @@ namespace ApiAuth0.Server.Migrations
 
             modelBuilder.Entity("ApiAuth0.Server.Models.Users", b =>
                 {
+                    b.Property<string>("Username")
+                        .HasColumnType("varchar(45)");
+
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
@@ -30,11 +32,7 @@ namespace ApiAuth0.Server.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(45)");
 
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("varchar(45)");
-
-                    b.HasKey("Id");
+                    b.HasKey("Username");
 
                     b.ToTable("Users");
                 });

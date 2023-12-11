@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiAuth0.Server.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231211065914_Initialn")]
-    partial class Initialn
+    [Migration("20231211175437_InitN")]
+    partial class InitN
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -22,8 +22,10 @@ namespace ApiAuth0.Server.Migrations
 
             modelBuilder.Entity("ApiAuth0.Server.Models.Users", b =>
                 {
+                    b.Property<string>("Username")
+                        .HasColumnType("varchar(45)");
+
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
@@ -33,11 +35,7 @@ namespace ApiAuth0.Server.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(45)");
 
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("varchar(45)");
-
-                    b.HasKey("Id");
+                    b.HasKey("Username");
 
                     b.ToTable("Users");
                 });

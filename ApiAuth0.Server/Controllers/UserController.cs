@@ -8,6 +8,7 @@ namespace ApiAuth0.Server.Controllers
     using Microsoft.AspNetCore.Cors;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Data.Sqlite;
+    using Microsoft.EntityFrameworkCore;
 
 
     namespace ApiAuth0.Server.Controllers
@@ -57,15 +58,19 @@ namespace ApiAuth0.Server.Controllers
             }
 
             [HttpPost("cadastrar")]
-            public async Task<IActionResult> Cadastrar(Users input)
+            public async Task<IActionResult> Cadastrar([FromQuery]Users input)
             {
+              
+           
                 _context.Users.Add(input);
+
                 _context.SaveChanges();
-                return Ok(new { Id = input.Id, Name = input.Name, Username = input.Username, Password = input.Password });
+                return Ok(new { Name=input.Name ,Username = input.Username, Password = input.Password  } );
             }
 
-
+           
         }
+   
 
     }
     }

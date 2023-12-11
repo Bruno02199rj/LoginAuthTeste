@@ -18,8 +18,8 @@ namespace ApiAuth0.Server.Data
             modelBuilder.Entity<Users>(p =>
             {
                 p.HasKey(p => p.Id);
+                p.HasKey(p => p.Username);
 
-             
 
                 p.Property(p => p.Username).IsRequired()
                 .HasColumnType("varchar(45)");

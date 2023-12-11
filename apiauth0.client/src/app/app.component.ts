@@ -34,16 +34,9 @@ export class AppComponent implements OnInit {
       });
   }
 
-  Enviar(data: { Username: string, Password: string }) {
   
-    console.log(data)
-    this.http.post(`/weatherforecast/login?username=${data.Username}&password=${data.Password}`, data,)
-      .subscribe((res) => {
-        console.log(res)
-      })
-
   }
-  }
+  
 
   
 
