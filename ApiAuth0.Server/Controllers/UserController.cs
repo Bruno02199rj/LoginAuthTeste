@@ -5,13 +5,14 @@ namespace ApiAuth0.Server.Controllers
  
     using global::ApiAuth0.Server.Data;
     using global::ApiAuth0.Server.Models;
-
+    using Microsoft.AspNetCore.Cors;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Data.Sqlite;
 
 
     namespace ApiAuth0.Server.Controllers
     {
+      
         [ApiController]
         [Route("[controller]")]
 
@@ -26,33 +27,13 @@ namespace ApiAuth0.Server.Controllers
                 _context = context;
             }
 
-
-
-
-
-            [HttpGet("get")]
-            public async Task<IActionResult> Teste()
+            [HttpPost("login")]
+            
+            public async Task<IActionResult> Logar([FromQuery] string username, [FromQuery] string password )
             {
-
-                return Ok(new { msg = "teste" });
-            }
-
-
-
-            [HttpPost("cadastrar")]
-
-            public async Task<IActionResult> Cadastrar(Users input)
-            {
-                _context.Users.Add(input);
-                _context.SaveChanges();
-                return Ok(new { Id = input.Id, Name = input.Name, Username = input.Username, Password = input.Password });
-            }
-
-            [HttpPost]
-            public async Task<IActionResult> Logar(string username, string password)
-            {
-                SqliteConnection sqLiteConnection = new SqliteConnection("DataSource=UsersASC.db;Cache=Shared;");
                 
+                SqliteConnection sqLiteConnection = new SqliteConnection("DataSource=UsersASC.db;Cache=Shared;");
+
                 await sqLiteConnection.OpenAsync();
 
                 SqliteCommand sqliteCommand = sqLiteConnection.CreateCommand();
@@ -68,9 +49,22 @@ namespace ApiAuth0.Server.Controllers
                 return Ok(new { Msg = "não encontrado" });
             }
 
+            [HttpGet]
+            public async Task<IActionResult> Teste()
+            {
+                return Ok(new { msg = "teste" });
+            }
+
+            [HttpPost("cadastrar")]
+            public async Task<IActionResult> Cadastrar(Users input)
+            {
+                _context.Users.Add(input);
+                _context.SaveChanges();
+                return Ok(new { Id = input.Id, Name = input.Name, Username = input.Username, Password = input.Password });
+            }
+
 
         }
-
 
     }
     }

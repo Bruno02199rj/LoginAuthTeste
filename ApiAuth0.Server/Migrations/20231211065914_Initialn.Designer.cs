@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiAuth0.Server.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231210163637_UsersInit")]
-    partial class UsersInit
+    [Migration("20231211065914_Initialn")]
+    partial class Initialn
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,8 +27,7 @@ namespace ApiAuth0.Server.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("varchar(45)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Password")
                         .IsRequired()

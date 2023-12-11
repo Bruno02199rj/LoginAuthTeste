@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
@@ -41,11 +41,15 @@ export class AppComponent implements OnInit {
   }
 
   Enviar(data: { Username: string, Password: string }) {
-
-    this.http.post('/weatherforecast/logar', data)
+    headers: new HttpHeaders({
+      'Content-Type':'application/json'
+    })
+    console.log(data)
+    this.http.post('/weatherforecast/Login', data,  )
       .subscribe((res) => {
-        console.log(res);
+        console.log(res)
       })
+
   }
   }
 

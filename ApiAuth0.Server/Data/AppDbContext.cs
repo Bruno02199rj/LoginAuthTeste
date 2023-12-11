@@ -19,10 +19,7 @@ namespace ApiAuth0.Server.Data
             {
                 p.HasKey(p => p.Id);
 
-                p.Property(p => p.Id).IsRequired();
-
-                p.Property(p => p.Name).IsRequired()
-                 .HasColumnType("varchar(45)");
+             
 
                 p.Property(p => p.Username).IsRequired()
                 .HasColumnType("varchar(45)");
