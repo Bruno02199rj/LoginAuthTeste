@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsersService } from './users.service';
 import { UsersComponent } from './users/users.component';
 
@@ -15,7 +15,7 @@ import { UsersComponent } from './users/users.component';
     UsersComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule,
+    BrowserModule, HttpClientModule, FormsModule,
     AppRoutingModule, CommonModule,ReactiveFormsModule
   ],
   providers: [HttpClientModule, UsersService],

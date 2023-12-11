@@ -25,14 +25,18 @@ namespace ApiAuth0.Server.Controllers
             {
                 _context = context;
             }
-            
 
-              [HttpGet]
+
+
+
+
+            [HttpGet("get")]
             public async Task<IActionResult> Teste()
             {
-  
-                return Ok(new { msg="teste" });
+
+                return Ok(new { msg = "teste" });
             }
+
 
 
             [HttpPost("cadastrar")]
@@ -45,7 +49,7 @@ namespace ApiAuth0.Server.Controllers
             }
 
             [HttpPost]
-            public async Task<IActionResult> Logar(string username, string senha)
+            public async Task<IActionResult> Logar(string username, string password)
             {
                 SqliteConnection sqLiteConnection = new SqliteConnection("DataSource=UsersASC.db;Cache=Shared;");
                 
@@ -53,7 +57,7 @@ namespace ApiAuth0.Server.Controllers
 
                 SqliteCommand sqliteCommand = sqLiteConnection.CreateCommand();
 
-                sqliteCommand.CommandText = $"SELECT * FROM Users WHERE Username ='{username}'AND Password = '{senha}'";
+                sqliteCommand.CommandText = $"SELECT * FROM Users WHERE Username ='{username}'AND Password = '{password}'";
 
                 SqliteDataReader reader = sqliteCommand.ExecuteReader();
 

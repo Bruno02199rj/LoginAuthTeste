@@ -16,20 +16,19 @@ interface WeatherForecast {
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
+
+
   forecasts: any;
-  formulario: any;
-  Enviar: any;
-
-
-
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.getForecasts();
+    
 
+    this.getForecasts();
    
   }
+
 
   getForecasts() {
     this.http.get('/weatherforecast').subscribe(
@@ -41,5 +40,14 @@ export class AppComponent implements OnInit {
       });
   }
 
+  Enviar(data: { Username: string, Password: string }) {
+
+    this.http.post('/weatherforecast/logar', data)
+      .subscribe((res) => {
+        console.log(res);
+      })
+  }
+  }
+
   
-}
+

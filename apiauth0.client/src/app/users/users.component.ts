@@ -18,21 +18,7 @@ export class UsersComponent {
 
   }
 
-  ngOnInit() {
-    
-    this.formulario = new FormGroup({
-      Username: new FormControl(),
-      Password: new FormControl()
-    })
+  
 
   }
- 
 
-  Enviar(): void {
-    
-    const User: User = this.formulario.value
-    this.usersService.Enviar(User).subscribe(result => {
-      alert('pessoa incluida')
-    })
-  }
-}
