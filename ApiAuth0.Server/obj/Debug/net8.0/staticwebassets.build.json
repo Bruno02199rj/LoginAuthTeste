@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "Mrr6JWwxVeQtH+6zLmK2+NbN7RCPix6Ux7pE51B2uj0=",
+  "Source": "ApiAuth0.Server",
+  "BasePath": "_content/ApiAuth0.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\bruno\\Source\\Repos\\ApiAuth0\\apiauth0.client\\apiauth0.client.esproj",
+      "Version": 2,
+      "Source": "apiauth0.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

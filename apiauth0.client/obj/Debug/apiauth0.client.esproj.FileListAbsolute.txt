@@ -1,0 +1,1 @@
+C:\Users\bruno\Source\Repos\ApiAuth0\apiauth0.client\obj\Debug\apiauth0.client.esproj.CoreCompileInputs.cache
